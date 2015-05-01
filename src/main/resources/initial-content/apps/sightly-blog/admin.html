@@ -1,0 +1,34 @@
+<html>
+<script data-sly-include="head.html" data-sly-unwrap/>
+
+<body>
+    <div class="menu">
+        <script data-sly-include="menu.html" data-sly-unwrap/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tr>
+                        <th>Title</th>
+                        <th>Created at</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <div data-sly-list="${resource.listChildren}" data-sly-unwrap>
+                        <tr>
+                            <td><a href="${item.path}.html">${item.jcr:title}</a>
+                            </td>
+                            <td>${item.created}</td>
+                            <td>View</td>
+                            <td>Delete</td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

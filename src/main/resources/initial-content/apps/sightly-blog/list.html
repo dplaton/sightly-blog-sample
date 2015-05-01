@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<script data-sly-include="head.html" data-sly-unwrap/>
+<body>
+<script data-sly-include="menu.html" data-sly-unwrap/>
+<div class="container">
+    <script data-sly-include="header.html" data-sly-unwrap/>
+    <div class="row">
+        <div data-sly-list="${resource.listChildren}" data-sly-unwrap>
+            <div class="blog-post">
+                <h2 class="blog-post-title">${item.jcr:title}</h2>
+                <p class="blog-post-meta">${item.jcr:created}</p>
+                <p>${item.text}</p>
+                <p><a href="${item.path}.html">Read post</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

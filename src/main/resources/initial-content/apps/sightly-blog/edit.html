@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script data-sly-include="head.html" data-sly-unwrap/>
+<body>
+<script data-sly-include="menu.html" data-sly-unwrap/>
+
+<div class="container">
+    <h1 data-sly-test="${!resource.jcr:title}">New Page</h1>
+    <h1 data-sly-test="${resource.jcr:title}">${resource.title}</h1>
+
+    <p>
+        Note that you need to <a href="?sling:authRequestLogin=1">login</a>
+        before creating or editing a post.
+    </p>
+
+    <form method="POST" action="${resource.path}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input name="jcr:title" type="text" size="80" class="form-control" id="title"
+                   value="${resource.jcr:title}"/>
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea name="text" cols="40" rows="5" class="form-control">${resource.text}</textarea>
+        </div>
+        <input type="hidden" name="created"/>
+        <input name=":redirect" type="hidden" value="/content/sightly-blog/posts.list.html"/>
+
+        <button type="submit" value="Post" class="btn btn-default">Add post </button>
+    </form>
+</div>
+</body>
+</html>
