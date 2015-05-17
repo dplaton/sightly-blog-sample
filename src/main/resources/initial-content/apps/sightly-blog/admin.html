@@ -7,12 +7,12 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
                 <table class="table">
                     <tr>
                         <th>Title</th>
                         <th>Created at</th>
-                        <th></th>
                         <th></th>
                     </tr>
                     <div data-sly-list="${resource.listChildren}" data-sly-unwrap>
@@ -20,12 +20,20 @@
                             <td><a href="${item.path}.html">${item.jcr:title}</a>
                             </td>
                             <td>${item.created}</td>
-                            <td>View</td>
-                            <td>Delete</td>
+                            <td>
+                                <form class="form-inline" action="${item.path}" method="POST">
+                                    <input type="hidden" name=":operation" value="delete"/>
+                                    <input name=":redirect" type="hidden" value="/content/sightly-blog/posts.admin.html"/>
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     </div>
                 </table>
             </div>
+            <div class="col-md-2"></div>
         </div>
     </div>
     
